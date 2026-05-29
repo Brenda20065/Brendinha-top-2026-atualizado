@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    <title>Projeto</title>
+    <title>Pokémon</title>
 </head>
 
 <body>
@@ -28,16 +28,18 @@
             <div class="circle"></div>
             <div class="circle"></div>
             <div class="circle"></div>
-            <div class="circle"></div> 
-        </div> 
+            <div class="circle"></div>
+        </div>
 
         <div class="list">
-            
+
+            <!-- Item 1: Pikachu -->
             <div class="item active">
                 <div class="product-img">
-                    <img src="./img/pikachu_PNG29.png" alt="Pikachu">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
                 </div>
                 <div class="content">
+                    <span class="type-badge type-eletrico">⚡ Elétrico</span>
                     <p class="product-tag">Sobre:</p>
                     <p class="product-name">Pikachu</p>
                     <p class="product-description">
@@ -47,29 +49,33 @@
                 </div>
             </div>
 
+            <!-- Item 2: Charmander -->
             <div class="item">
                 <div class="product-img">
-                    <img src="./img/charmander.png" alt="Charmander">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander">
                 </div>
                 <div class="content">
+                    <span class="type-badge type-fogo">🔥 Fogo</span>
                     <p class="product-tag">Sobre:</p>
                     <p class="product-name">Charmander</p>
                     <p class="product-description">
-                        Charmander, conhecido como Hitokage no Japão, é uma espécie de Pokémon na franquia de mídia Pokémon da Nintendo e da Game Freak, e a primeira forma de sua respectiva linha evolutiva, que inclui Charmeleon e sua forma final Charizard.
+                        Charmander, conhecido como Hitokage no Japão, é uma espécie de Pokémon na franquia da Nintendo e da Game Freak. É a primeira forma de sua linha evolutiva, que inclui Charmeleon e Charizard.
                     </p>
                     <button class="btn">Saiba Mais</button>
                 </div>
             </div>
 
+            <!-- Item 3: Bulbasaur -->
             <div class="item">
                 <div class="product-img">
-                    <img src="./img/bola-removebg-preview.png" alt="Ash">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur">
                 </div>
                 <div class="content">
+                    <span class="type-badge type-planta">🌿 Planta / Veneno</span>
                     <p class="product-tag">Sobre:</p>
-                    <p class="product-name">Ash Ketchum</p>
+                    <p class="product-name">Bulbasaur</p>
                     <p class="product-description">
-                        Ash Ketchum é o protagonista da série de anime Pokémon. Ele é um jovem treinador de Pokémon que viaja pelo mundo para se tornar um mestre em treinamento de Pokémon.
+                        Bulbasaur é o primeiro Pokémon da Pokédex nacional. Com uma semente nas costas que cresce conforme ele evolui, Bulbasaur é um dos três Pokémon iniciais da região de Kanto.
                     </p>
                     <button class="btn">Saiba Mais</button>
                 </div>
@@ -77,12 +83,12 @@
 
             <div class="arrows">
                 <button class="arrow-btn" id="prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-left-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-                    </svg> 
+                    </svg>
                 </button>
                 <button class="arrow-btn" id="next">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right-fill" viewBox="0 0 16 16">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                         <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
                     </svg>
                 </button>
@@ -94,11 +100,12 @@
                     <div class="dot active"></div>
                     <div class="dot"></div>
                     <div class="dot"></div>
-                </div> 
-            </div> 
+                </div>
+            </div>
 
-        </div> </main> 
-        
-        <script src="./scripts.js"></script>
+        </div>
+    </main>
+
+    <script src="./scripts.js"></script>
 </body>
 </html>

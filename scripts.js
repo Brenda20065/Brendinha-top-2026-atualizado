@@ -3,46 +3,58 @@ const nextButton = document.getElementById('next');
 const items = document.querySelectorAll('.item');
 const dots = document.querySelectorAll('.dot');
 const numbersIndicator = document.querySelector('.numbers');
-const list = document.querySelector('.list');
 
 let active = 0;
 const total = items.length;
 let timer;
 
+// Atualiza o slide ativo
 function update(direction) {
-    const currentActiveItem = document.querySelector('.item.active');
-    const currentActiveDot = document.querySelector('.dot.active');
-
-    if (currentActiveItem) currentActiveItem.classList.remove('active');
-    if (currentActiveDot) currentActiveDot.classList.remove('active');
+    items[active].classList.remove('active');
+    dots[active].classList.remove('active');
 
     if (direction > 0) {
-        active = active + 1;
-        if (active === total) {
-            active = 0;
-        }
-    }
-    else if (direction < 0) {
-        active = active - 1;
-        if (active < 0) {
-            active = total - 1;
-        }
+        active = (active + 1) % total;
+    } else if (direction < 0) {
+        active = (active - 1 + total) % total;
     }
 
-    if (items[active]) items[active].classList.add('active');
-    if (dots[active]) dots[active].classList.add('active');
-
-    if (numbersIndicator) {
-        numbersIndicator.textContent = String(active + 1).padStart(2, '0');
-    }
+    items[active].classList.add('active');
+    dots[active].classList.add('active');
+    numbersIndicator.textContent = String(active + 1).padStart(2, '0');
 }
 
-clearInterval(timer);
-timer = setInterval(() => {
+// FIX: reseta o timer ao clicar, evitando pulo duplo
+function resetTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => update(1), 5000);
+}
+
+// Inicia o autoplay
+resetTimer();
+
+// Botões de seta
+prevButton.addEventListener('click', () => {
+    update(-1);
+    resetTimer();
+});
+
+nextButton.addEventListener('click', () => {
     update(1);
-}, 5000);
+    resetTimer();
+});
 
-prevButton.addEventListener('click', () => update(-1));
-nextButton.addEventListener('click', () => update(1));
+// Clique direto nos dots
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        items[active].classList.remove('active');
+        dots[active].classList.remove('active');
+        active = index;
+        items[active].classList.add('active');
+        dots[active].classList.add('active');
+        numbersIndicator.textContent = String(active + 1).padStart(2, '0');
+        resetTimer();
+    });
+});
 
-console.log("O arquivo script.js foi carregado com sucesso!");
+console.log("scripts.js carregado com sucesso!");
