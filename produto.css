@@ -1,3 +1,5 @@
+
+
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +9,8 @@
 }
 
 body {
-    background-color: #f4f6f9; /* Fundo claro e limpo para destacar os produtos */
-    color: #333; /* Texto escuro para leitura confortável */
+    background-color: #f0f4f8; 
+    color: #111;
     overflow-x: hidden;
 }
 
@@ -22,17 +24,23 @@ header {
     justify-content: space-between;
     align-items: center;
     z-index: 10;
-    background: rgba(255, 255, 255, 0.95); /* Header branco limpo */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Sombra suave profissional */
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #FFCC00;
 }
 
 .logo {
     font-family: "Orbitron", sans-serif;
     font-size: 2rem;
     font-weight: 900;
-    color: #ff1f1f; /* Vermelho Pokebola clássico */
-    text-shadow: 2px 2px 0px #ffcb05; /* Sombra amarela clássica de Pokémon */
+    color: #FF1C1C; 
+    text-shadow: 3px 3px 0px #FFCC00;
     cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.08) rotate(-2deg);
 }
 
 header nav ul {
@@ -44,13 +52,15 @@ header nav ul li {
     cursor: pointer;
     position: relative;
     padding: 5px 0;
-    color: #4a5568;
-    font-weight: 600;
+    color: #1a202c;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: color 0.2s;
 }
 
 header nav ul li:hover {
-    color: #ff1f1f;
+    color: #FF1C1C;
 }
 
 header nav ul li::after {
@@ -59,20 +69,20 @@ header nav ul li::after {
     left: 0;
     bottom: 0;
     width: 0;
-    height: 3px;
-    background-color: #ffcb05; /* Linha de hover amarela */
-    transition: 0.2s ease;
+    height: 4px;
+    background-color: #FF1C1C; 
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border-radius: 2px;
 }
 
 header nav ul li:hover::after { width: 100%; }
 
 header nav ul li.active-link {
-    color: #ff1f1f;
+    color: #FF1C1C;
 }
 header nav ul li.active-link::after {
     width: 100%;
-    background-color: #ff1f1f;
+    background-color: #FF1C1C;
 }
 
 /* ─── Hero da página de produtos ─── */
@@ -84,7 +94,8 @@ header nav ul li.active-link::after {
     justify-content: center;
     text-align: center;
     padding: 140px 20px 60px;
-    background: linear-gradient(135deg, #ff1f1f 0%, #cc0000 100%); /* Gradiente vermelho Pokebola */
+    /* Hero em Azul para dar um contraste gigante com a Home amarela/vermelha */
+    background: linear-gradient(135deg, #2A75BB 0%, #104E8B 100%); 
     position: relative;
     overflow: hidden;
 }
@@ -92,10 +103,10 @@ header nav ul li.active-link::after {
 .hero::before {
     content: '';
     position: absolute;
-    width: 500px;
-    height: 500px;
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 203, 5, 0.25) 0%, transparent 70%); /* Brilho amarelo central */
+    background: radial-gradient(circle, rgba(255, 204, 0, 0.2) 0%, transparent 70%); 
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -104,126 +115,132 @@ header nav ul li.active-link::after {
 
 .hero h1 {
     font-family: "Orbitron", sans-serif;
-    font-size: 3.5rem;
+    font-size: 3.8rem;
     font-weight: 900;
     color: #fff;
     margin-bottom: 16px;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-shadow: 0 6px 15px rgba(0,0,0,0.3);
 }
 
 .hero h1 span { 
-    color: #ffcb05; /* Destaque em amarelo Pikachu */
+    color: #FFCC00; 
+    text-shadow: 2px 2px 0px #FF1C1C;
 }
 
 .hero p {
-    font-size: 1.2rem;
-    color: #ffe5e5;
-    max-width: 500px;
-    font-weight: 500;
+    font-size: 1.3rem;
+    color: #e0eaf5;
+    max-width: 600px;
+    font-weight: 600;
 }
 
 /* ─── Grid de produtos ─── */
 .products-section {
-    padding: 60px 80px 100px;
-    background: #f4f6f9;
+    padding: 80px 80px 100px;
+    background: #f0f4f8;
 }
 
 .section-title {
     font-family: "Orbitron", sans-serif;
-    font-size: 1.6rem;
-    color: #2d3748;
-    letter-spacing: 2px;
+    font-size: 2rem;
+    color: #1a202c;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     text-align: center;
-    font-weight: 800;
+    font-weight: 900;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
 }
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 /* ─── Card de produto ─── */
 .card {
-    background: #ffffff; /* Card branco para parecer uma loja de verdade */
-    border: 1px solid #e2e8f0;
-    border-radius: 20px; /* Cantos mais arredondados e amigáveis */
+    background: #ffffff;
+    border: 3px solid transparent; 
+    border-radius: 24px; 
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(255, 31, 31, 0.15); /* Sombra vermelha suave no hover */
+    transform: translateY(-12px);
+    border-color: #FFCC00; /* Borda acende no hover */
+    box-shadow: 0 20px 40px rgba(255, 28, 28, 0.15); 
 }
 
 .card-img {
     width: 100%;
-    height: 220px;
+    height: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f8fafc; /* Fundo suave para a foto do Pokémon */
+    /* Fundo dinâmico para a foto */
+    background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 100%);
     padding: 20px;
-    border-bottom: 1px solid #f1f5f9;
+    border-bottom: 2px solid #edf2f7;
+    overflow: hidden;
 }
 
 .card-img img {
-    max-height: 180px;
+    max-height: 190px;
     max-width: 100%;
-    filter: drop-shadow(0 8px 12px rgba(0,0,0,0.1)); /* Sombra realista no Pokémon */
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.2)); 
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .card:hover .card-img img {
-    transform: scale(1.15); /* Efeito de "pulo" sutil ao passar o mouse */
+    transform: scale(1.2) rotate(3deg); /* Pulo muito mais evidente e divertido */
 }
 
 .card-body {
-    padding: 20px 24px 24px;
+    padding: 25px;
 }
-
-.type-planta {
-    border-radius: 12px; /* Estilo pílula clássico dos jogos */
-}
-
 
 .card-type {
     display: inline-block;
-    padding: 4px 14px;
-    border-radius: 12px; /* Estilo pílula clássico dos jogos */
-    font-size: 0.75rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    margin-bottom: 12px;
+    padding: 6px 16px;
+    border-radius: 20px; 
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
     text-transform: uppercase;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Cores oficiais dos tipos Pokémon adaptadas para tags */
-.type-eletrico { background: #fef08a; color: #a16207; border: 1px solid #facc15; }
-.type-fogo     { background: #fee2e2; color: #b91c1c; border: 1px solid #f87171; }
-.type-planta   { background: #dcfce7; color: #15803d; border: 1px solid #4ade80; }
-.type-agua     { background: #e0f2fe; color: #0369a1; border: 1px solid #38bdf8; }
+.type-eletrico { background: #FFCC00; color: #000; border: 2px solid #D4A000; }
+.type-fogo     { background: #FF1C1C; color: #FFF; border: 2px solid #CC0000; }
+.type-planta   { background: #4DAD5B; color: #FFF; border: 2px solid #368040; }
+.type-agua     { background: #2A75BB; color: #FFF; border: 2px solid #1A538C; }
 
 .card-name {
     font-family: "Montserrat", sans-serif;
     color: #1a202c;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.card:hover .card-name {
+    color: #FF1C1C; 
 }
 
 .card-description {
-    font-size: 0.9rem;
-    color: #718096;
+    font-size: 0.95rem;
+    color: #4a5568;
     line-height: 1.5;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-weight: 600;
 }
 
 .card-footer {
@@ -233,87 +250,88 @@ header nav ul li.active-link::after {
 }
 
 .card-price {
-    font-size: 1.6rem;
-    font-weight: 800;
+    font-size: 1.8rem;
+    font-weight: 900;
     color: #1a202c;
 }
 
 .card-price span {
-    font-size: 0.85rem;
-    color: #a0aec0;
-    font-weight: 500;
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 700;
 }
 
 .btn-comprar {
-    padding: 12px 24px;
-    background: #ff1f1f; /* Botão vermelho Pokebola */
-    border: none;
-    border-radius: 15px;
+    padding: 14px 28px;
+    background: #FF1C1C; 
+    border: 3px solid #FF1C1C;
+    border-radius: 20px;
     color: #fff;
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 800;
     cursor: pointer;
-    transition: background 0.2s, transform 0.2s;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 6px 15px rgba(255, 28, 28, 0.3);
 }
 
 .btn-comprar:hover {
-    background: #e61b1b;
-    transform: scale(1.03);
+    background: #FFCC00;
+    color: #111;
+    border-color: #FFCC00;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 204, 0, 0.5);
 }
 
 /* ─── Banner de contato ─── */
 .contact-banner {
-    background: linear-gradient(135deg, #1e293b, #0f172a); /* Azul escuro premium para contraste */
-    padding: 80px 40px;
+    /* Gradiente Vermelho Super Vibrante para o rodapé */
+    background: linear-gradient(135deg, #FF1C1C, #CC0000); 
+    padding: 90px 40px;
     text-align: center;
     color: #fff;
+    box-shadow: inset 0 10px 20px rgba(0,0,0,0.1);
 }
 
 .contact-banner h2 {
     font-family: "Orbitron", sans-serif;
-    font-size: 2.2rem;
-    margin-bottom: 12px;
-    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: 900;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
 }
 
 .contact-banner p {
-    color: #94a3b8;
-    margin-bottom: 30px;
-    font-size: 1.1rem;
+    color: #ffe5e5;
+    margin-bottom: 35px;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .btn-instagram {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 16px 36px;
-    background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045);
+    gap: 12px;
+    padding: 18px 45px;
+    background: #ffffff;
     border: none;
     border-radius: 50px;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 700;
+    color: #FF1C1C;
+    font-size: 1.1rem;
+    font-weight: 900;
     cursor: pointer;
     text-decoration: none;
-    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
 .btn-instagram:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(253,29,29,0.3);
+    background: #FFCC00;
+    color: #111;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
 }
 
-/* ─── Footer ─── */
-footer {
-    background: #0f172a;
-    text-align: center;
-    padding: 30px;
-    color: #64748b;
-    font-size: 0.9rem;
-    border-top: 1px solid #1e293b;
-}
-
-footer span { 
-    color: #ffcb05; /* Destaque amarelo no rodapé */
-    font-weight: 600;
-}
+/* ─── Footer
