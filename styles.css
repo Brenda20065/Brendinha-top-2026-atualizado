@@ -7,30 +7,32 @@
 }
 
 body {
-    background-color: #0f0f1e;
-    color: #fff;
+    background-color: #f4f6f9; /* Fundo limpo e convidativo */
+    color: #2d3748; /* Texto escuro para leitura confortável */
     font-size: 16px;
     overflow-x: hidden;
 }
 
+/* ─── Header ─── */
 header {
     position: fixed;
     width: 100%;
     top: 0;
-    padding: 20px 50px;
+    padding: 15px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 10;
-    background: linear-gradient(to bottom, rgba(15,15,30,0.95), transparent);
+    background: rgba(255, 255, 255, 0.95); /* Header branco e limpo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .logo {
     font-family: "Orbitron", sans-serif;
     font-size: 2rem;
     font-weight: 900;
-    color: #ff0000;
-    text-shadow: 0 0 10px rgb(235, 74, 33);
+    color: #ff1f1f; /* Vermelho Pokebola clássico */
+    text-shadow: 2px 2px 0px #ffcc00; /* Sombra amarela clássica */
 }
 
 header nav ul {
@@ -42,6 +44,13 @@ header nav ul li {
     cursor: pointer;
     position: relative;
     padding: 5px 0;
+    color: #4a5568;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+header nav ul li:hover {
+    color: #ff1f1f;
 }
 
 header nav ul li::after {
@@ -50,9 +59,10 @@ header nav ul li::after {
     left: 0;
     bottom: 0;
     width: 0;
-    height: 2px;
-    background-color: #ff0000;
+    height: 3px;
+    background-color: #c1c40e; /* Linha amarela de hover */
     transition: 0.2s ease;
+    border-radius: 2px;
 }
 
 header nav ul li:hover::after {
@@ -63,56 +73,56 @@ header nav ul li:hover::after {
 .container {
     height: 100vh;
     position: relative;
-    background: linear-gradient(135deg, #0f0f1e 0%, #1f1f3a 100%);
+    background: linear-gradient(135deg, #f39090 0%, #fdfb79 100%); /* Gradiente suave e claro */
     overflow: hidden;
 }
 
+/* Brilho de fundo centralizado atrás do Pokémon */
 .container::before {
     content: '';
     position: absolute;
-    width: 500%;
-    height: 500%;
+    width: 1200px;
+    height: 1200px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(63, 53, 15, 0.651) 0%, rgb(255, 230, 0) 70%);
+    background: radial-gradient(circle, rgb(253, 253, 253) 0%, transparent 60%); /* Brilho amarelo amigável */
     top: 50%;
-    left: 50%;
+    left: 25%; /* Alinhado mais próximo do lado da imagem */
     transform: translate(-50%, -50%);
-    filter: blur(50px);
+    filter: blur(40px);
     z-index: 1;
-    animation: pulse 4s infinite alternate;
+    animation: pulse 6s infinite alternate ease-in-out;
 }
 
 @keyframes pulse {
     0% {
-        opacity: 0.5;
-        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.6;
+        transform: translate(-50%, -50%) scale(0.9);
     }
     100% {
         opacity: 1;
-        transform: translate(-50%, -50%) scale(2);
+        transform: translate(-50%, -50%) scale(1.1);
     }
 }
 
 /* ─── Lista / Slider ─── */
 .list {
-    width: 80%;
+    width: 85%;
     height: 100%;
     margin: 0 auto;
     position: relative;
     z-index: 2;
 }
 
-/* FIX: transition corrigida — era "opacity, opacity", agora "opacity, transform" */
 .item {
     position: absolute;
     inset: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     opacity: 0;
     visibility: hidden;
-    transform: translateX(100px);
-    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+    transform: translateX(50px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .item.active {
@@ -123,7 +133,7 @@ header nav ul li:hover::after {
 
 /* ─── Imagem do Pokémon ─── */
 .product-img {
-    width: 50%;
+    width: 45%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -133,22 +143,21 @@ header nav ul li:hover::after {
 }
 
 .product-img img {
-    max-width: 80%;
-    max-height: 60%;
-    filter: drop-shadow(0 0 30px rgba(0, 247, 255, 0.5));
-    animation: float 3s ease-in-out infinite;
+    max-width: 85%;
+    max-height: 65%;
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.12)); /* Sombra realista e suave */
+    animation: float 4s ease-in-out infinite;
 }
 
 @keyframes float {
     0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-18px); }
+    50%       { transform: translateY(-15px); }
 }
 
 /* ─── Conteúdo de texto ─── */
 .content {
     width: 50%;
-    padding: 80px;
-    padding-right: 120px;
+    padding: 40px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -158,66 +167,72 @@ header nav ul li:hover::after {
 }
 
 .product-tag {
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    color: #ff0000;
-    font-weight: 600;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
+    color: #ff1f1f; /* Tag em vermelho vivo */
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
 }
 
 .product-name {
-    font-size: 4.5rem;
-    font-family: "Orbitron", sans-serif;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    font-size: 4rem;
+    font-family: "Montserrat", sans-serif; /* Fonte mais orgânica e amigável */
+    font-weight: 900;
+    color: #1a202c;
+    line-height: 1.1;
+    margin-bottom: 16px;
 }
 
 .product-description {
     font-size: 1.1rem;
-    color: #ccc;
+    color: #4a5568; /* Texto cinza escuro de alta leitura */
     line-height: 1.6;
-    margin-bottom: 30px;
-    max-width: 600px;
+    margin-bottom: 24px;
+    max-width: 550px;
 }
 
 /* ─── Badge de tipo ─── */
 .type-badge {
     display: inline-block;
-    padding: 4px 14px;
-    border-radius: 20px;
+    padding: 5px 16px;
+    border-radius: 12px; /* Formato pílula clássico dos menus de Pokémon */
     font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-right: 6px;
-    margin-bottom: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-right: 8px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
-.type-eletrico { background: rgba(255,200,0,0.2);  color: #ffd700; border: 1px solid #ffd700; }
-.type-fogo     { background: rgba(255,60,0,0.2);   color: #ff6030; border: 1px solid #ff6030; }
-.type-planta   { background: rgba(0,200,80,0.2);   color: #00cc55; border: 1px solid #00cc55; }
+/* Cores pastéis e profissionais adaptadas para os tipos */
+.type-eletrico { background: #fef08a; color: #a16207; border: 1px solid #facc15; }
+.type-fogo     { background: #fee2e2; color: #b91c1c; border: 1px solid #f87171; }
+.type-planta   { background: #dcfce7; color: #15803d; border: 1px solid #4ade80; }
 
-/* ─── Botão ─── */
+/* ─── Botão Comprar ─── */
 .btn {
-    padding: 12px 28px;
-    background: linear-gradient(90deg, #ff0000 0%, #ff4d4d 100%);
-    border-radius: 30px;
+    padding: 14px 36px;
+    background: #ff1f1f; /* Vermelho Pokebola sólido */
+    border-radius: 16px; /* Cantos arredondados amigáveis, combinando com os cards */
     color: #fff;
     font-size: 1rem;
     font-weight: 700;
     cursor: pointer;
     border: none;
-    margin-top: 20px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    letter-spacing: 1px;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(255, 31, 31, 0.2);
 }
 
 .btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    background-color: #e61b1b;
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 31, 31, 0.3);
 }
 
-/* ─── Setas ─── */
+/* ─── Setas de Navegação ─── */
 .arrows {
     position: absolute;
     width: 100%;
@@ -227,29 +242,33 @@ header nav ul li:hover::after {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 5;
-    padding: 0 20px;
+    padding: 0 40px;
     box-sizing: border-box;
+    pointer-events: none; /* Evita que a div bloqueie cliques no meio da tela */
 }
 
 .arrow-btn {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(241, 226, 16, 0.849);
-    color: #fff;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #4a5568;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    transition: all 0.2s ease;
+    pointer-events: auto; /* Reativa os cliques nos botões */
 }
 
 .arrow-btn:hover {
-    background-color: rgb(255, 234, 42);
-    border-color: rgba(255, 238, 0, 0.6);
-    color: #000;
+    background-color: #ffcb05; /* Fica amarelo Pikachu no hover */
+    border-color: #ffcb05;
+    color: #1a202c;
     transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(255, 203, 5, 0.4);
 }
 
 /* ─── Indicadores ─── */
@@ -261,15 +280,15 @@ header nav ul li:hover::after {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
     z-index: 5;
 }
 
 .numbers {
     font-family: "Orbitron", sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 800;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(26, 32, 44, 0.15); /* Número sutil usando a cor escura do tema */
 }
 
 .dots {
@@ -278,20 +297,20 @@ header nav ul li:hover::after {
 }
 
 .dot {
-    width: 40px;
-    height: 10px;
-    background-color: rgba(255, 0, 0, 0.2);
-    border-radius: 2px;
+    width: 35px;
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.08);
+    border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .dot.active {
-    background-color: #ff0000;
-    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+    background-color: #ff0000; /* Indicador ativo em vermelho */
+    box-shadow: 0 2px 6px rgba(255, 31, 31, 0.3);
 }
 
-/* ─── Círculos decorativos ─── */
+/* ─── Elementos decorativos (Substituídos por Pokebolas sutis de fundo) ─── */
 .tech-circle {
     position: absolute;
     top: 0;
@@ -300,15 +319,16 @@ header nav ul li:hover::after {
     height: 100%;
     overflow: hidden;
     z-index: 1;
+    pointer-events: none;
 }
 
 .circle {
     position: absolute;
     border-radius: 50%;
-    border: 1px solid rgba(255, 0, 0, 0.4);
+    border: 2px dashed rgba(63, 150, 6, 0.61); /* Estilo tracejado lúdico */
 }
 
-.circle:nth-child(1) { width: 200px; height: 200px; top: 10%; left: 5%; }
-.circle:nth-child(2) { width: 300px; height: 300px; top: 65%; left: 80%; }
-.circle:nth-child(3) { width: 150px; height: 150px; top: 75%; left: 10%; }
-.circle:nth-child(4) { width: 120px; height: 120px; top: 15%; left: 65%; }
+.circle:nth-child(1) { width: 180px; height: 180px; top: 15%; left: 8%; }
+.circle:nth-child(2) { width: 280px; height: 280px; top: 60%; left: 75%; }
+.circle:nth-child(3) { width: 130px; height: 130px; top: 80%; left: 15%; }
+.circle:nth-child(4) { width: 100px; height: 100px; top: 20%; left: 60%; }
