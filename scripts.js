@@ -1,60 +1,29 @@
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
-const items = document.querySelectorAll('.item');
-const dots = document.querySelectorAll('.dot');
-const numbersIndicator = document.querySelector('.numbers');
+// Função para mostrar página e atualizar navegação
+function showPage(pageId) {
+    // Esconde todas as páginas
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
 
-let active = 0;
-const total = items.length;
-let timer;
-
-// Atualiza o slide ativo
-function update(direction) {
-    items[active].classList.remove('active');
-    dots[active].classList.remove('active');
-
-    if (direction > 0) {
-        active = (active + 1) % total;
-    } else if (direction < 0) {
-        active = (active - 1 + total) % total;
+    // Mostra a página selecionada
+    const selectedPage = document.getElementById(pageId);
+    if (selectedPage) {
+        selectedPage.classList.add('active');
     }
 
-    items[active].classList.add('active');
-    dots[active].classList.add('active');
-    numbersIndicator.textContent = String(active + 1).padStart(2, '0');
+    // Atualiza botões de navegação
+    const navButtons = document.querySelectorAll('.nav-btn');
+    navButtons.forEach(btn => btn.classList.remove('active'));
+    
+    // Encontra e marca o botão correto como ativo
+    const activeBtn = Array.from(navButtons).find(btn => 
+        btn.getAttribute('onclick') === `showPage('${pageId}')`
+    );
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+    }
 }
 
-// FIX: reseta o timer ao clicar, evitando pulo duplo
-function resetTimer() {
-    clearInterval(timer);
-    timer = setInterval(() => update(1), 5000);
-}
 
-// Inicia o autoplay
-resetTimer();
-
-// Botões de seta
-prevButton.addEventListener('click', () => {
-    update(-1);
-    resetTimer();
+document.addEventListener('DOMContentLoaded', () => {
+    showPage('home');
 });
-
-nextButton.addEventListener('click', () => {
-    update(1);
-    resetTimer();
-});
-
-// Clique direto nos dots
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        items[active].classList.remove('active');
-        dots[active].classList.remove('active');
-        active = index;
-        items[active].classList.add('active');
-        dots[active].classList.add('active');
-        numbersIndicator.textContent = String(active + 1).padStart(2, '0');
-        resetTimer();
-    });
-});
-
-console.log("scripts.js carregado com sucesso!");

@@ -1,110 +1,411 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-    <title>Pokémon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>Karine Cândida Nails - Nail Designer Profissional</title>
 </head>
-
 <body>
-    <header>
-        <div class="logo">POKEMON</div>
-        <nav>
-    <ul>
-        <li><a href="index.html" class="active-link" style="text-decoration: none; color: inherit;">Home</a></li>
-        <li><a href="Produto.html" style="text-decoration: none; color: inherit;">Produtos</a></li>
-        <li><a href="https://instagram.com/http.sadeck" target="_blank" style="text-decoration: none; color: inherit;">Contato</a></li>
-    </ul>
-</nav>
-    </header>
+    <!-- NAVBAR FIXA -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">KC Nails</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="nav-btn active" onclick="showPage('home')">Home</button>
+                <button class="nav-btn" onclick="showPage('sobre')">Sobre</button>
+                <button class="nav-btn" onclick="showPage('servicos')">Serviços</button>
+                <button class="nav-btn" onclick="showPage('cursos')">Cursos</button>
+                <button class="nav-btn" onclick="showPage('contato')">Contato</button>
+            </div>
+        </div>
+    </nav>
 
-    <main class="container">
-        <div class="tech-circle">
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
-            <div class="circle"></div>
+    <!-- PÁGINAS -->
+    <main class="main-content">
+
+        <!-- PÁGINA HOME -->
+        <div id="home" class="page active">
+            <section class="hero-new">
+                <div class="hero-circle">
+                    <img src="foto-karine.jpeg" alt="Karine Cândida">
+                </div>
+                
+                <div class="hero-info">
+                    <h1>Karine Cândida</h1>
+                    <p class="hero-subtitle">Nail Designer Profissional</p>
+                    <p class="hero-description">Unhas perfeitas com técnica de aquarela exclusiva e estilo profissional</p>
+                    
+                    <div class="hero-buttons-new">
+                        <button class="btn btn-primary" onclick="showPage('contato')">Agendar Agora</button>
+                        <button class="btn btn-secondary" onclick="showPage('sobre')">Conhecer Meu Trabalho</button>
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <div class="list">
+        <!-- PÁGINA SOBRE -->
+        <div id="sobre" class="page">
+            <section class="container">
+                <div class="section-header">
+                    <h2>Sobre Karine Cândida</h2>
+                    <p class="section-subtitle">Conheça minha jornada no mundo das unhas</p>
+                </div>
 
-            <!-- Item 1: Pikachu -->
-            <div class="item active">
-                <div class="product-img">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png" alt="Pikachu">
+                <!-- SEÇÃO: Apresentação + Foto Circular -->
+                <div class="about-grid">
+                    <div class="about-text-section">
+                        <h3>Olá! Sou Karine Cândida 💅</h3>
+                        <p>Transformei minha paixão em profissão e hoje ofereço as melhores técnicas de nail design, com destaque para a técnica exclusiva de aquarela em unhas.</p>
+                        <p>Desde 2021, trabalho com dedicação para entregar resultados perfeitos e levar confiança a cada cliente que passa pelas minhas mãos.</p>
+                    </div>
+                    <div class="about-image-profile">
+                        <img src="foto-karine.jpeg" alt="Karine Cândida">
+                        <div class="about-badge">
+                            <span class="badge-label">Profissional Desde</span>
+                            <span class="badge-value">2021</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="content">
-                    <span class="type-badge type-eletrico">⚡ Elétrico</span>
-                    <p class="product-name">Pikachu</p>
-                    <p class="product-tag">Sobre:</p>
-                    <p class="product-description">
-                        Pikachu é uma espécie fictícia pertencente à franquia de mídia Pokémon da Nintendo. Ele apareceu pela primeira vez no Japão em 1996, nos jogos eletrônicos Pokémon Red e Pokémon Green.
-                    </p>
-                    <button class="btn" onclick="window.location.href='Produto.html'">Saiba Mais</button>
-                </div>
-            </div>
 
-            <!-- Item 2: Charmander -->
-            <div class="item">
-                <div class="product-img">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" alt="Charmander">
+                <!-- ESTATÍSTICAS -->
+                <div class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-number">500+</div>
+                        <p>Clientes Felizes</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100+</div>
+                        <p>Alunas Formadas</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3+</div>
+                        <p>Anos de Trajetória</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1</div>
+                        <p>Técnica Exclusiva</p>
+                    </div>
                 </div>
-                <div class="content">
-                    <span class="type-badge type-fogo">🔥 Fogo</span>
-                    <p class="product-name">Charmander</p>
-                    <p class="product-tag">Sobre:</p>
-                    <p class="product-description">
-                        Charmander, conhecido como Hitokage no Japão, é uma espécie de Pokémon na franquia da Nintendo e da Game Freak. É a primeira forma de sua linha evolutiva, que inclui Charmeleon e Charizard.
-                    </p>
-                    <button class="btn" onclick="window.location.href='Produto.html'">Saiba Mais</button>
-                </div>
-            </div>
 
-            <!-- Item 3: Bulbasaur -->
-            <div class="item">
-                <div class="product-img">
-                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="Bulbasaur">
+                <!-- SEÇÃO: FOTOS DO ESTÚDIO -->
+                <div class="studio-section">
+                    <h3>Conheça Meu Estúdio</h3>
+                    <p class="section-subtitle">Um espaço acolhedor e profissional</p>
+                    
+                    <div class="studio-grid">
+                        <div class="studio-item">
+                            <img src="foto-karine.jpeg" alt="Estúdio - Foto 1">
+                            <p>Meu acolhedor espaço</p>
+                        </div>
+                        <div class="studio-item">
+                            <img src="foto-karine.jpeg" alt="Estúdio - Foto 2">
+                            <p>Área de atendimento</p>
+                        </div>
+                        <div class="studio-item">
+                            <img src="foto-karine.jpeg" alt="Estúdio - Foto 3">
+                            <p>Bancada de trabalho</p>
+                        </div>
+                        <div class="studio-item">
+                            <img src="foto-karine.jpeg" alt="Estúdio - Foto 4">
+                            <p>Iluminação profissional</p>
+                        </div>
+                        <div class="studio-item">
+                            <img src="foto-karine.jpeg" alt="Estúdio - Foto 5">
+                            <p>Coleção de cores</p>
+                        </div>
+                        <div class="studio-item">
+                            <img src="foto-karine.jpeg" alt="Estúdio - Foto 6">
+                            <p>Atendimento premium</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="content">
-                    <span class="type-badge type-planta">🌿 Planta / Veneno</span>
-                    <p class="product-name">Bulbasaur</p>
-                    <p class="product-tag">Sobre:</p>
-                    <p class="product-description">
-                        Bulbasaur é o primeiro Pokémon da Pokédex nacional. Com uma semente nas costas que cresce conforme ele evolui, Bulbasaur é um dos três Pokémon iniciais da região de Kanto.
-                    </p>
-                    <button class="btn" onclick="window.location.href='Produto.html'">Saiba Mais</button>
+
+                <!-- HISTÓRIA NARRATIVA -->
+                <div class="story-section">
+                    <h3>Minha Trajetória</h3>
+                    <p class="section-subtitle">A história por trás de cada unhas perfeita</p>
+                    
+                    <div class="story-item story-item-1">
+                        <div class="story-content">
+                            <h3>O Chamado (2021)</h3>
+                            <p>Em 2021, depois de muito refletir e pesando cada decisão, transformei essa paixão em profissão. Deixei minha zona de conforto e mergulhei de corpo e alma no universo fascinante do Nail Design profissional.</p>
+                            <p>Investi em cursos, técnicas, materiais de qualidade. Estudei incessantemente para dominar cada detalhe, cada técnica, cada estilo. Era um sonho que precisava se tornar real.</p>
+                        </div>
+                        <div class="story-media">
+                            <img src="foto-karine.jpeg" alt="2021">
+                        </div>
+                    </div>
+
+                    <div class="story-item story-item-2">
+                        <div class="story-media">
+                            <img src="foto-karine.jpeg" alt="Evolução">
+                        </div>
+                        <div class="story-content">
+                            <h3>Evoluindo Constantemente</h3>
+                            <p>Com o tempo, percebi que tinha algo diferente a oferecer. Enquanto estudava técnicas, descobri a arte da aquarela em unhas - uma técnica exclusiva que poucos dominam.</p>
+                            <p>Dediquei meses aperfeiçoando essa técnica, estudando cores, traços, combinações. Hoje sou <strong>a única profissional com essa técnica em Barra do Garças</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div class="story-item story-item-1">
+                        <div class="story-content">
+                            <h3>Compartilhando Conhecimento</h3>
+                            <p>Depois de consolidar meu trabalho como designer, surgiu o desejo de compartilhar tudo que aprendi. Comecei a oferecer cursos profissionais para mulheres que queriam ingressar nessa área.</p>
+                            <p>Já formei mais de 100 alunas! Cada uma delas carregando comigo o conhecimento, a técnica e a paixão pelo trabalho bem feito.</p>
+                        </div>
+                        <div class="story-media">
+                            <img src="foto-karine.jpeg" alt="Cursos">
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="arrows">
-                <button class="arrow-btn" id="prev">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z"/>
-                    </svg>
-                </button>
-                <button class="arrow-btn" id="next">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
-                    </svg>
-                </button>
-            </div>
-
-            <div class="indicators">
-                <div class="numbers">01</div>
-                <div class="dots">
-                    <div class="dot active"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-            </div>
-
+            </section>
         </div>
+
+<!-- PÁGINA SERVIÇOS -->
+        <div id="servicos" class="page">
+            <section class="container">
+                <div class="section-header">
+                    <h2>Serviços e Preços</h2>
+                    <p class="section-subtitle">Conheça nossos serviços disponíveis</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">✨</div>
+                        <h4>Aquarela em Unhas</h4>
+                        <p>Técnica exclusiva e delicada</p>
+                        <span class="service-price">A consultar</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">💎</div>
+                        <h4>Alongamento Gel</h4>
+                        <p>Resistente e com acabamento perfeito</p>
+                        <span class="service-price">A consultar</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🎀</div>
+                        <h4>Alongamento Acrílico</h4>
+                        <p>Técnica profissional e duradoura</p>
+                        <span class="service-price">A consultar</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">✂️</div>
+                        <h4>Manicura Russa</h4>
+                        <p>Cuidado completo com cutícula perfeita</p>
+                        <span class="service-price">A consultar</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">💅</div>
+                        <h4>Design Personalizado</h4>
+                        <p>Crie suas unhas do seu jeito</p>
+                        <span class="service-price">A consultar</span>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🌟</div>
+                        <h4>Blindagem de Unhas</h4>
+                        <p>Proteção e brilho intenso</p>
+                        <span class="service-price">A consultar</span>
+                    </div>
+                </div>
+
+                <div class="cta-section">
+                    <p>Entre em contato para consultar preços e agendar seu atendimento!</p>
+                    <button class="btn btn-primary" onclick="showPage('contato')">Agendar Agora</button>
+                </div>
+            </section>
+        </div>
+
+        <!-- PÁGINA CURSOS -->
+        <div id="cursos" class="page">
+            <section class="container">
+                <div class="section-header">
+                    <h2>Cursos Profissionais</h2>
+                    <p class="section-subtitle">Aprenda as técnicas mais procuradas do mercado</p>
+                </div>
+
+                <div class="course-card-main">
+                    <div class="course-header">
+                        <h3>Curso de Nail Designer</h3>
+                        <p>Gel ou Acrílico - Sua Escolha!</p>
+                    </div>
+
+                    <div class="course-details">
+                        <div class="detail-item">
+                            <span class="label">Duração</span>
+                            <span class="value">2 dias</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Formato</span>
+                            <span class="value">Presencial</span>
+                        </div>
+                        <div class="detail-item highlight">
+                            <span class="label">Investimento</span>
+                            <span class="value">R$ 1.200</span>
+                        </div>
+                    </div>
+
+                    <div class="course-content">
+                        <div class="course-column">
+                            <h4>📌 Técnicas de Alongamento</h4>
+                            <ul>
+                                <li>Extensores para alongamento</li>
+                                <li>Molde Russo</li>
+                                <li>Molde F1</li>
+                                <li>Gel moldado (molde papel)</li>
+                            </ul>
+                        </div>
+                        <div class="course-column">
+                            <h4>✨ Técnicas de Acabamento</h4>
+                            <ul>
+                                <li>Blindagem + esmaltação</li>
+                                <li>Banho de gel ou acrílico</li>
+                                <li>Retificação com polygel</li>
+                                <li>Finalizações profissionais</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="course-benefits">
+                        <div class="benefit-column">
+                            <h4>🎁 Bônus Exclusivos</h4>
+                            <ul>
+                                <li>Demonstração em Gel ou Acrílico</li>
+                                <li>Demonstração de Manicura Russa</li>
+                                <li>Desconto nos próximos cursos</li>
+                            </ul>
+                        </div>
+                        <div class="benefit-column">
+                            <h4>📦 Incluso no Curso</h4>
+                            <ul>
+                                <li>Certificado</li>
+                                <li>Apostila</li>
+                                <li>Coffee Break</li>
+                                <li>Mimo Especial</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="course-note">
+                        <p><strong>Importante:</strong> O Curso de Gel e Acrílico têm o mesmo valor e carga horária. Opção com material incluso tem valor diferenciado.</p>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="showPage('contato')">Quero me Inscrever</button>
+                </div>
+
+                <!-- VÍDEOS DOS CURSOS -->
+                <div class="course-videos-section">
+                    <h3>Veja Nossos Cursos em Ação</h3>
+                    <p class="section-subtitle">Vídeos, tutoriais e demonstrações das técnicas que você vai aprender</p>
+                    
+                    <div class="videos-grid-courses">
+                        <div class="video-item-course">
+                            <div class="video-placeholder-course">
+                                <p>🎥 Vídeo 1</p>
+                                <small>Cole o embed do YouTube</small>
+                            </div>
+                            <p>Técnica de Aquarela - Passo a Passo</p>
+                        </div>
+                        <div class="video-item-course">
+                            <div class="video-placeholder-course">
+                                <p>🎥 Vídeo 2</p>
+                                <small>Cole o embed do YouTube</small>
+                            </div>
+                            <p>Aplicação de Gel - Tutorial Completo</p>
+                        </div>
+                        <div class="video-item-course">
+                            <div class="video-placeholder-course">
+                                <p>🎥 Vídeo 3</p>
+                                <small>Cole o embed do YouTube</small>
+                            </div>
+                            <p>Manicura Russa - Demonstração</p>
+                        </div>
+                        <div class="video-item-course">
+                            <div class="video-placeholder-course">
+                                <p>🎥 Vídeo 4</p>
+                                <small>Cole o embed do YouTube</small>
+                            </div>
+                            <p>Antes e Depois - Transformação</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- PÁGINA CONTATO -->
+        <div id="contato" class="page">
+            <section class="container">
+                <div class="section-header">
+                    <h2>Entre em Contato</h2>
+                    <p class="section-subtitle">Agende seu atendimento ou conheça mais sobre os cursos</p>
+                </div>
+
+                <!-- SEÇÃO COM DUAS COLUNAS: Esquerda (Contatos) | Direita (Foto) -->
+                <div class="contact-layout">
+                    <div class="contact-content">
+                        <div class="contact-grid">
+                            <a href="https://wa.me/5566992524774" target="_blank" class="contact-card">
+                                <div class="contact-icon">💬</div>
+                                <h4>WhatsApp</h4>
+                                <p>(66) 99252-4774</p>
+                            </a>
+
+                            <a href="https://instagram.com/karinecandidanails" target="_blank" class="contact-card">
+                                <div class="contact-icon">📱</div>
+                                <h4>Instagram</h4>
+                                <p>@karinecandidanails</p>
+                            </a>
+
+                            <a href="mailto:karinecandidosilva@outlook.com" class="contact-card">
+                                <div class="contact-icon">📧</div>
+                                <h4>E-mail</h4>
+                                <p>karinecandidosilva@outlook.com</p>
+                            </a>
+
+                            <a href="https://maps.google.com/?q=Rua+Padre+Zefferino+Agostini+764+Barra+do+Garças" target="_blank" class="contact-card">
+                                <div class="contact-icon">📍</div>
+                                <h4>Localização</h4>
+                                <p>Rua Padre Zefferino Agostini nº 764</p>
+                                <p>Barra do Garças - MT</p>
+                            </a>
+
+                            <a href="https://facebook.com/studiokariencandidanails" target="_blank" class="contact-card">
+                                <div class="contact-icon">👍</div>
+                                <h4>Facebook</h4>
+                                <p>Studio Karine Candida Nails</p>
+                            </a>
+
+                            <div class="contact-card">
+                                <div class="contact-icon">⏰</div>
+                                <h4>Horários</h4>
+                                <p>Consulte pelo WhatsApp</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-image">
+                        <img src="foto-karine.jpeg" alt="Studio Karine Cândida">
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>&copy; 2026 Studio Karine Cândida Nails. Todos os direitos reservados.</p>
+    </footer>
 
     <script src="./scripts.js"></script>
 </body>
