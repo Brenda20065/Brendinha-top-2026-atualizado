@@ -2,7 +2,8 @@ const PAGINAS = ['home', 'sobre', 'servicos', 'cursos', 'contato'];
 
 const navbar = document.querySelector('.navbar');
 const menuToggle = document.querySelector('.menu-toggle');
-const navLinks = document.querySelectorAll('.nav-btn');
+// links do menu de cima (computador) e da barra de baixo (celular)
+const navLinks = document.querySelectorAll('.nav-btn, .bottom-link');
 
 // Mostra a página pedida no endereço (#sobre, #cursos...) e marca o menu
 function showPage(pageId) {
@@ -56,67 +57,66 @@ document.querySelectorAll('[data-desde]').forEach(el => {
 
 document.getElementById('ano').textContent = anoAtual;
 
-// ----- Carrossel de unhas (aba Sobre) -----
-const nailsTrack = document.querySelector('.nails-track');
-
-if (nailsTrack) {
-    const nailItems = nailsTrack.querySelectorAll('.nail-item');
-    const nailsPrev = document.querySelector('.nails-prev');
-    const nailsNext = document.querySelector('.nails-next');
-    const nailsDots = document.querySelector('.nails-dots');
+// ----- Carrosséis de fotos (aba Serviços e aba Cursos) -----
+function iniciarCarrossel(secao) {
+    const track = secao.querySelector('.nails-track');
+    const itens = track.querySelectorAll('.nail-item');
+    const prev = secao.querySelector('.nails-prev');
+    const next = secao.querySelector('.nails-next');
+    const dots = secao.querySelector('.nails-dots');
 
     // distância entre o início de uma foto e o da próxima
-    const passo = () => nailItems[1].offsetLeft - nailItems[0].offsetLeft;
+    const passo = () => itens.length > 1 ? itens[1].offsetLeft - itens[0].offsetLeft : 0;
 
     // quantas fotos cabem na tela ao mesmo tempo (3, 2 ou 1)
-    const porVez = () => Math.max(1, Math.round(nailsTrack.clientWidth / passo()));
+    const porVez = () => Math.max(1, Math.round(track.clientWidth / passo()));
 
     // uma bolinha para cada posição possível
     function criarBolinhas() {
-        nailsDots.innerHTML = '';
-        const total = nailItems.length - porVez() + 1;
+        if (!passo()) return;   // aba escondida: monta quando ela aparecer
+        dots.innerHTML = '';
+        const total = itens.length - porVez() + 1;
         for (let i = 0; i < total; i++) {
             const dot = document.createElement('button');
             dot.setAttribute('aria-label', 'Ir para a foto ' + (i + 1));
-            dot.addEventListener('click', () => irPara(i));
-            nailsDots.appendChild(dot);
+            dot.addEventListener('click', () => track.scrollTo({ left: i * passo() }));
+            dots.appendChild(dot);
         }
         atualizar();
     }
 
-    function irPara(indice) {
-        nailsTrack.scrollTo({ left: indice * passo() });
-    }
-
     function atualizar() {
-        const atual = Math.round(nailsTrack.scrollLeft / passo());
-        const max = nailsTrack.scrollWidth - nailsTrack.clientWidth;
-        nailsDots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('active', i === atual));
-        nailsPrev.disabled = nailsTrack.scrollLeft <= 5;
-        nailsNext.disabled = nailsTrack.scrollLeft >= max - 5;
+        if (!passo()) return;
+        const atual = Math.round(track.scrollLeft / passo());
+        const max = track.scrollWidth - track.clientWidth;
+        dots.querySelectorAll('button').forEach((d, i) => d.classList.toggle('active', i === atual));
+        prev.disabled = track.scrollLeft <= 5;
+        next.disabled = track.scrollLeft >= max - 5;
     }
 
-    nailsPrev.addEventListener('click', () => nailsTrack.scrollBy({ left: -passo() }));
-    nailsNext.addEventListener('click', () => nailsTrack.scrollBy({ left: passo() }));
-    nailsTrack.addEventListener('scroll', atualizar, { passive: true });
+    prev.addEventListener('click', () => track.scrollBy({ left: -passo() }));
+    next.addEventListener('click', () => track.scrollBy({ left: passo() }));
+    track.addEventListener('scroll', atualizar, { passive: true });
 
     // setas do teclado quando o carrossel está selecionado
-    nailsTrack.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') { e.preventDefault(); nailsNext.click(); }
-        if (e.key === 'ArrowLeft') { e.preventDefault(); nailsPrev.click(); }
+    track.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') { e.preventDefault(); next.click(); }
+        if (e.key === 'ArrowLeft') { e.preventDefault(); prev.click(); }
     });
 
-    // refaz as bolinhas ao girar o celular ou redimensionar a janela
-    let espera;
-    window.addEventListener('resize', () => {
-        clearTimeout(espera);
-        espera = setTimeout(criarBolinhas, 150);
-    });
-
-    // a aba Sobre começa escondida; monta quando ela é aberta
-    window.addEventListener('hashchange', () => {
-        if (location.hash === '#sobre') setTimeout(criarBolinhas, 50);
-    });
-
-    criarBolinhas();
+    return criarBolinhas;
 }
+
+const montarCarrosseis = [...document.querySelectorAll('.nails-section')].map(iniciarCarrossel);
+const remontarCarrosseis = () => setTimeout(() => montarCarrosseis.forEach(f => f()), 50);
+
+// as abas começam escondidas: monta as bolinhas quando uma aba aparece,
+// ao abrir a página e ao girar o celular ou redimensionar a janela
+window.addEventListener('hashchange', remontarCarrosseis);
+document.addEventListener('DOMContentLoaded', remontarCarrosseis);
+let esperaCarrossel;
+window.addEventListener('resize', () => {
+    clearTimeout(esperaCarrossel);
+    esperaCarrossel = setTimeout(remontarCarrosseis, 150);
+});
+remontarCarrosseis();
